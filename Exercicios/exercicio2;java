@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class exercicios2 {
+
+    public static void main(String[] args) {
+        // Criar o objeto Scanner para leitura dos dados
+        Scanner scanner = new Scanner(System.in);
+        
+        // Entrada de dados
+        System.out.print("Digite o código do funcionário: ");
+        int codigoFuncionario = scanner.nextInt();
+        
+        scanner.nextLine(); // Limpar o buffer do scanner
+        
+        System.out.print("Digite o sexo do funcionário (M para masculino, F para feminino): ");
+        char sexo = scanner.nextLine().charAt(0);
+        
+        System.out.print("Digite o tempo de trabalho do funcionário (em anos): ");
+        int tempoDeTrabalho = scanner.nextInt();
+        
+        System.out.print("Digite o salário do funcionário: ");
+        double salario = scanner.nextDouble();
+        
+        // Cálculo do bônus
+        double bonus = 0;
+        
+        if (sexo == 'M' || sexo == 'm') {
+            // Funcionários masculinos
+            if (tempoDeTrabalho > 15) {
+                bonus = salario * 0.20; // 20% do salário
+            } else {
+                bonus = 100; // Bônus fixo de 100 para os demais
+            }
+        } else if (sexo == 'F' || sexo == 'f') {
+            // Funcionárias femininas
+            if (tempoDeTrabalho > 10) {
+                bonus = salario * 0.25; // 25% do salário
+            } else {
+                bonus = 100; // Bônus fixo de 100 para os demais
+            }
+        }
+        
+        // Exibir o resultado
+        System.out.printf("Código do Funcionário: %d%n", codigoFuncionario);
+        System.out.printf("Sexo: %c%n", sexo);
+        System.out.printf("Tempo de Trabalho: %d anos%n", tempoDeTrabalho);
+        System.out.printf("Salário: R$ %.2f%n", salario);
+        System.out.printf("Valor do Bônus de Natal: R$ %.2f%n", bonus);
+        
+        // Fechar o scanner
+        scanner.close();
+    }
+}
